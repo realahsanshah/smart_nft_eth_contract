@@ -135,7 +135,7 @@ contract SmartNft is ReentrancyGuard, Pausable, Ownable {
         payable(msg.sender).transfer(address(this).balance);
     }
 
-    function getLeaderBoard() public onlyOwner view returns(Burner[] memory){
+    function getLeaderBoard() public view returns(Burner[] memory){
         Burner[] memory leaderBoardList = new Burner[](burnersList.length);
         for(uint256 i=0;i<burnersList.length;i++){
             leaderBoardList[i] = (burnersMapping[burnersList[i]]);
