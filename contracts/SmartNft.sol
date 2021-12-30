@@ -79,7 +79,7 @@ contract SmartNft is ReentrancyGuard, Pausable, Ownable {
             return defaultPrice;
     }
 
-    function batchTransfer(address[] calldata tokenContracts, uint256[] calldata tokenIds, uint256[] calldata counts) external whenNotPaused {
+    function batchTransfer(address[] calldata tokenContracts, uint256[] calldata tokenIds, uint256[] calldata counts) public whenNotPaused {
         require(barn != address(0), "Barn cannot be the 0x0 address");
         require(tokenContracts.length > 0, "Must have 1 or more token contracts");
         require(tokenContracts.length == tokenIds.length && tokenIds.length == counts.length, "All params must have equal length");
